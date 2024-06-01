@@ -4,13 +4,13 @@ import (
 	"testing"
 )
 
-func TestIterator_Next(t *testing.T) {
+func TestIterate_Next(t *testing.T) {
 	var a Arena[int]
 	a.Insert(1)
 	a.Insert(2)
 	a.Insert(3)
 
-	it := a.Iterator()
+	it := a.Iterate()
 	gotValue, gotId, done := it.Next()
 	if done {
 		t.Errorf("Next() returned done too early")

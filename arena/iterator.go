@@ -1,12 +1,12 @@
 package arena
 
-// Iterator is an iterator over the values in an arena.
+// Iterator is an Iterate over the values in an arena.
 type Iterator[T any] struct {
 	i     int
 	arena *Arena[T]
 }
 
-// Next returns the next value in the iterator, along with its ID.
+// Next returns the next value in the Iterate, along with its ID.
 // If there are no more values, it returns true for done.
 func (e *Iterator[T]) Next() (val T, id ID, done bool) {
 	for e.i < len(e.arena.metadata) {

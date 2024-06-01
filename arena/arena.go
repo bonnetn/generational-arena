@@ -138,8 +138,8 @@ func (a *Arena[T]) Clear() {
 	a.length = 0
 }
 
-// Iterator returns an iterator for the arena.
-func (a *Arena[T]) Iterator() *Iterator[T] {
+// Iterate returns an Iterate for the arena.
+func (a *Arena[T]) Iterate() *Iterator[T] {
 	return &Iterator[T]{arena: a}
 }
 

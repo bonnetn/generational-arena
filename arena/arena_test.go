@@ -268,7 +268,7 @@ func assertValues[T comparable](t *testing.T, a Arena[T], expectedValues ...T) {
 		t.Errorf("Invalid number of values")
 	}
 
-	it := a.Iterator()
+	it := a.Iterate()
 	i := 0
 	for {
 		v, _, done := it.Next()
@@ -277,7 +277,7 @@ func assertValues[T comparable](t *testing.T, a Arena[T], expectedValues ...T) {
 		}
 
 		if v != expectedValues[i] {
-			t.Errorf("Iterator returned %v, expected %v", v, expectedValues[i])
+			t.Errorf("Iterate returned %v, expected %v", v, expectedValues[i])
 		}
 
 		i++
