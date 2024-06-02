@@ -106,6 +106,20 @@ func (a *Arena[T]) Get(id ID) (result T, ok bool) {
 	return a.values[id.Position], true
 }
 
+func (a *Arena[T]) Put(id ID, value T) bool {
+	if id.Position < 0 || id.Position >= len(a.metadata) {
+		return false
+	}
+
+	existingEntry := a.metadata[id.Position]
+	if existingEntry.state == stateFree || existingEntry.generation != id.Generation {
+		return false
+	}
+
+	a.values[id.Position] = value
+	return true
+}
+
 // Clone creates a deep copy of the arena.
 // The new arena will have the same capacity as the original arena.
 func (a *Arena[T]) Clone() Arena[T] {
